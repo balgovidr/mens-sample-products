@@ -1,112 +1,81 @@
 import Image from "next/image";
+import logo from "@/app/assets/logo.png"
+import boxPic from "@/app/assets/open-box-removebg-preview.png"
+import sachetPic from "@/app/assets/sachet-removebg-preview.png"
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+  function WhyComponent({title, content}) {
+    return (
+      <div className="flex flex-col w-3/4 z-10 even:self-end even:items-end even:text-right">
+        <span className="text-xl">{title}</span>
+        <span className="text-md">{content}</span>
+      </div>
+    )
+  }
+
+  function HowComponent({title, content}) {
+    return (
+      <div className="flex flex-col bg-secondary m-5 p-5 gap-2 text-primary shadow-lg">
+        <span className="text-xl">{title}</span>
+        <divider className="bg-primary h-px" />
+        <span className="text-md">{content}</span>
+      </div>
+    )
+  }
+
+  function ProductComponent({title, content, image}) {
+    return (
+      <div className="relative flex flex-col bg-primary m-5 p-5 gap-2 text-secondary shadow-lg mt-[160px]">
+        <div className="absolute left-1/2 transform -translate-x-1/2" style={{ bottom: 'calc(100% - 50px)' }}>
+          <Image src={image} height={200} alt={title} className="relative" />
+        </div>
+        <div className="bg-secondary h-px w-full mt-[30px]" />
+        <div className="pt-[30px] flex flex-col items-center gap-2">
+          <span className="text-6xl uppercase font-light">{title}</span>
+          <span className="text-md">{content}</span>
+          <button className="border-secondary transition hover:border-tertiary border py-2 px-4 text-md w-fit self-center">
+            Add to cart
+          </button>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+    )
+  }
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="flex flex-col h-screen bg-primary w-full text-secondary p-5 justify-evenly">
+        <Image src={boxPic} width={375} alt="Opened box showing sample products" className="self-center lg:block"/>
+        <button className="border-secondary transition hover:border-tertiary border py-2 px-4 text-md my-10 w-fit self-center">Get Your Sample Pack Now</button>
+        <div className="flex flex-col gap-4">
+          <Image src={logo} width={40} height={40} alt="Logo" />
+          <span className="text-4xl uppercase font-extralight tracking-[0.25em] font-montserrat">Grooming Lab</span>
+          <span className="font-light text-lg font-montserrat">Where men discover</span>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="flex flex-col">
+        <span className="text-2xl bg-secondary text-primary px-5 py-20">Try the best men&apos;s grooming products before you buy.</span>
+        <span className="text-right hidden text-2xl bg-primary text-secondary px-5 py-20">Curated sample packs of top hair styling, grooming, and skincare products for men.</span>
+      </div>
+      <div className="flex flex-col bg-secondary w-full text-primary">
+        <span className="text-5xl font-light uppercase tracking-[0.25em] font-montserrat px-5 py-10 text-center">Why?</span>
+        <div className="flex flex-col p-5 justify-evenly h-full w-full relative gap-12 mb-10">
+          <div className="lg:hidden absolute top-100 inset-0 bg-cover bg-secondary bg-opacity-50 backdrop-blur-3xl" style={{ backgroundImage: `url(${sachetPic.src})` }} id="this"></div>
+          <WhyComponent title="Variety" content="Handpicked selection of top products." />
+          <WhyComponent title="Convenience" content="Delivered right to your door." />
+          <WhyComponent title="Affordable" content="Try before committing to full-sized products." />
+          <WhyComponent title="Affordable" content="Try before committing to full-sized products." />
+        </div>
+        <Image src={sachetPic} width={250} alt="Opened box showing sample products" className="self-center hidden lg:block"/>
+      </div>
+      <div className="flex flex-col bg-primary text-secondary w-full">
+        <span className="text-5xl font-light uppercase tracking-[0.25em] font-montserrat px-5 py-10 text-center">How?</span>
+        <HowComponent title="Select your pack" content="Choose from our curated sample packs." />
+        <HowComponent title="Try at home" content="Experience the products in the comfort of your home." />
+        <HowComponent title="Find your favourites" content="Discover what works best for you." />
+      </div>
+      <div className="flex flex-col bg-secondary text-primary">
+        <ProductComponent title="Hair" content="Get a box with 5 hair products to try out." image={logo}/>
       </div>
     </main>
   );

@@ -7,10 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        // Primary colors
+        tertiary: '#2C3E50',
+        primary: '#34495E',
+        secondary: '#e0e0e0',
+        // Accent colors
+        olive: '#6B8E23',
+        accent: '#ffa047',
+        // Additional colors
+        // burgundy: '#800020', // Example color, adjust as needed
+      },
+      fontFamily: {
+        montserrat: ['var(--font-montserrat)'],
+        bellota: ['var(--font-bellota)'], // Ensure fonts with spaces have " " surrounding it.
       },
     },
   },
