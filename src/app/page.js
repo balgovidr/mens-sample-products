@@ -3,6 +3,8 @@ import logo from "@/app/assets/Logo.gif"
 import invertedLogo from "@/app/assets/inverted.svg"
 import boxPic from "@/app/assets/box.png"
 import sachetPic from "@/app/assets/sachet.png"
+import hairUser from "@/app/assets/hair.png"
+import skinUser from "@/app/assets/skin.png"
 
 export default function Home() {
   function WhyComponent({title, content}) {
@@ -24,18 +26,28 @@ export default function Home() {
     )
   }
 
-  function ProductComponent({title, content, image}) {
+  function ProductComponent({title, content, list, image}) {
     return (
-      <div className="relative flex flex-col bg-primary m-5 p-5 gap-2 text-secondary shadow-lg mt-[160px]">
+      <div className="relative flex flex-col bg-primary m-5 p-5 gap-2 text-secondary shadow-xl mt-[120px]">
         <div className="absolute left-1/2 transform -translate-x-1/2" style={{ bottom: 'calc(100% - 50px)' }}>
           <Image src={image} height={200} alt={title} className="relative" />
         </div>
-        <div className="bg-secondary h-px w-full mt-[30px]" />
-        <div className="pt-[30px] flex flex-col items-center gap-2">
+        <div className="bg-secondary h-px mt-[30px] mx-8" />
+        <div className="pt-[30px] flex flex-col items-center gap-6">
           <span className="text-6xl uppercase font-light">{title}</span>
           <span className="text-md">{content}</span>
+          <div className="flex flex-col">
+            <span className="font-semibold">What&apos;s inside:</span>
+            <ul className="list-disc ml-5 gap-2 flex flex-col">
+              {list.map((point, index) => {
+                return (
+                  <li key={index}>{point}</li>
+                )
+              })}
+            </ul>
+          </div>
           <button className="border-secondary transition hover:border-tertiary border py-2 px-4 text-md w-fit self-center">
-            Add to cart
+            Build my pack
           </button>
         </div>
       </div>
@@ -56,12 +68,12 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col">
-        <span className="text-2xl bg-secondary text-primary px-5 py-20">Try the best men&apos;s grooming products before you buy.</span>
-        <span className="text-right hidden text-2xl bg-primary text-secondary px-5 py-20">Curated sample packs of top hair styling, grooming, and skincare products for men.</span>
+        <span className="text-2xl hidden bg-secondary text-primary px-5 py-20">Try the best men&apos;s grooming products before you buy.</span>
+        <span className="text-2xl bg-secondary text-primary px-5 py-20">Curated sample packs of top hair styling, grooming, and skincare products for men.</span>
         <divider className="bg-primary h-px mx-10" />
       </div>
       <div className="flex flex-col bg-secondary w-full text-primary">
-        <span className="text-5xl font-light uppercase tracking-[0.25em] font-montserrat px-5 pt-10 text-center">Why?</span>
+        <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 text-center font-black opacity-70">Why?</span>
         <div className="flex flex-col p-5 justify-evenly h-full w-full">
           <div className="h-[500px] w-full flex p-14 blur-[2px] opacity-90">
             <Image src={sachetPic} alt="Opened box showing sample products" className="self-center object-contain"/>
@@ -75,18 +87,26 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col bg-primary text-secondary w-full overflow-hidden">
-        <span className="text-5xl font-light uppercase tracking-[0.25em] font-montserrat px-5 py-10 text-center z-10">How?</span>
-        <div className="h-[500px] w-full flex opacity-50 items-center">
+        <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 py-10 text-center z-10 font-black opacity-70">How?</span>
+        <div className="h-[550px] w-full flex opacity-50 items-center">
           <Image src={invertedLogo} alt="Opened box showing sample products" className="object-cover h-[900px] w-[900px] -rotate-45 overflow-visible"/>
         </div>
-        <div className="h-[500px] w-full flex mt-[-500px] flex-col justify-evenly">
-          <HowComponent title="Select your pack" content="Choose from our curated sample packs." />
-          <HowComponent title="Try at home" content="Experience the products in the comfort of your home." />
+        <div className="h-[550px] w-full flex mt-[-550px] flex-col justify-evenly">
+          <HowComponent title="Select your pack" content="Use our forms to customise a curated pack of samples fit for you." />
+          <HowComponent title="Try at home" content="The pack you've bought is delivered to you. Experience sample packs of the products in the comfort of your home." />
           <HowComponent title="Find your favourites" content="Discover what works best for you." />
         </div>
       </div>
       <div className="flex flex-col bg-secondary text-primary">
-        <ProductComponent title="Hair" content="Get a box with 5 hair products to try out." image={logo}/>
+        <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 py-10 text-center z-10  font-black opacity-70">The packs</span>
+        <ProductComponent title="Hair" content="Discover your best hair with our personalized hair care pack. Tailored to your unique hair type, this pack includes premium, expert-approved samples to help you find the perfect routine for healthy, stylish hair." list={["A variety of shampoos, conditioners or styling products.", "Customised based on your hair type and needs.", "Handpicked from top brands."]} image={hairUser}/>
+        <ProductComponent title="Skin" content="Experience personalized skincare with our custom pack for men. Tailored to your skin profile, it includes premium samples for dryness, oiliness, sensitivity, acne, razor burn, and aging. Achieve a healthier, more resilient complexion with our expertly selected products." list={["A selection of cleansers, moisturisers or serums tailored to your skin type.", "Solutions for issues such as razor burn and ingrown hairs.", "Expertly curated from trusted skincare brands."]} image={skinUser}/>
+      </div>
+      <div className="flex flex-col bg-white w-full">
+        <form>
+          <label>Got feedback or thoughts on what else you might want from us?</label>
+          <textarea></textarea>
+        </form>
       </div>
     </main>
   );
