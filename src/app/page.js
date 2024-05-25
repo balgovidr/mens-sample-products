@@ -5,6 +5,8 @@ import boxPic from "@/app/assets/box.png"
 import sachetPic from "@/app/assets/sachet.png"
 import hairUser from "@/app/assets/hair.png"
 import skinUser from "@/app/assets/skin.png"
+import { FeedbackForm } from "./components/feedbackForm";
+import CallIcon from '@mui/icons-material/Call';
 
 export default function Home() {
   function WhyComponent({title, content}) {
@@ -20,8 +22,8 @@ export default function Home() {
     return (
       <div className="flex flex-col bg-secondary/20 m-5 p-5 gap-2 text-white shadow-xl backdrop-blur-sm rounded">
         <span className="text-xl">{title}</span>
-        <divider className="bg-primary h-0.5" />
-        <span className="text-md">{content}</span>
+        <div className="bg-primary h-0.5" />
+        <span className="text-sm font-light">{content}</span>
       </div>
     )
   }
@@ -35,10 +37,10 @@ export default function Home() {
         <div className="bg-secondary h-px mt-[30px] mx-8" />
         <div className="pt-[30px] flex flex-col items-center gap-6">
           <span className="text-6xl uppercase font-light">{title}</span>
-          <span className="text-md">{content}</span>
+          <span className="text-sm">{content}</span>
           <div className="flex flex-col">
             <span className="font-semibold">What&apos;s inside:</span>
-            <ul className="list-disc ml-5 gap-2 flex flex-col">
+            <ul className="list-disc ml-5 gap-2 flex flex-col text-sm">
               {list.map((point, index) => {
                 return (
                   <li key={index}>{point}</li>
@@ -58,8 +60,23 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <div className="flex flex-col h-screen bg-primary w-full text-secondary justify-between">
-        <div className="h-3/5 w-full">
+        <div className="flex flex-col h-3/5 w-full">
           <Image src={boxPic} alt="Opened box showing sample products" className="self-center lg:block drop-shadow-2xl object-cover	h-full w-full"/>
+          <div className="z-10 flex flex-row flex-wrap gap-y-1 -mt-40 pl-5 text-2xl">
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">Curated</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">sample</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">packs</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">of</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">top</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">hair</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">styling,</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">grooming,</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">and</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">skincare</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">products</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary pr-1">for</span>
+            <span className="inline-block bg-secondary bg-opacity-55 backdrop-blur-md text-primary">men.</span>
+          </div>
         </div>
         <div className="flex flex-col gap-4 p-5">
           <Image src={logo} width={100} height={100} alt="Logo" />
@@ -69,8 +86,8 @@ export default function Home() {
       </div>
       <div className="flex flex-col">
         <span className="text-2xl hidden bg-secondary text-primary px-5 py-20">Try the best men&apos;s grooming products before you buy.</span>
-        <span className="text-2xl bg-secondary text-primary px-5 py-20">Curated sample packs of top hair styling, grooming, and skincare products for men.</span>
-        <divider className="bg-primary h-px mx-10" />
+        <span className="text-xl bg-secondary text-primary px-5 py-20">Curated sample packs of top hair styling, grooming, and skincare products for men.</span>
+        <div className="bg-primary h-px mx-10" />
       </div>
       <div className="flex flex-col bg-secondary w-full text-primary">
         <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 text-center font-black opacity-70">Why?</span>
@@ -102,11 +119,16 @@ export default function Home() {
         <ProductComponent title="Hair" content="Discover your best hair with our personalized hair care pack. Tailored to your unique hair type, this pack includes premium, expert-approved samples to help you find the perfect routine for healthy, stylish hair." list={["A variety of shampoos, conditioners or styling products.", "Customised based on your hair type and needs.", "Handpicked from top brands."]} image={hairUser}/>
         <ProductComponent title="Skin" content="Experience personalized skincare with our custom pack for men. Tailored to your skin profile, it includes premium samples for dryness, oiliness, sensitivity, acne, razor burn, and aging. Achieve a healthier, more resilient complexion with our expertly selected products." list={["A selection of cleansers, moisturisers or serums tailored to your skin type.", "Solutions for issues such as razor burn and ingrown hairs.", "Expertly curated from trusted skincare brands."]} image={skinUser}/>
       </div>
-      <div className="flex flex-col bg-white w-full">
-        <form>
-          <label>Got feedback or thoughts on what else you might want from us?</label>
-          <textarea></textarea>
-        </form>
+      <div className="flex flex-col bg-white w-full px-5 py-14 gap-8 shadow-lg">
+        <FeedbackForm />
+        <div className="flex flex-row flex-wrap text-sm text-tertiary gap-2 justify-center">
+          <div>The Modern Gentleman &copy; {new Date().getFullYear()}</div>
+          <div className="flex flex-row gap-1">
+            <CallIcon fontSize="small"/>
+            <span>+44 7401 996 138</span>
+          </div>
+          <div>Deliveries made anywhere in the UK.</div>
+        </div>
       </div>
     </main>
   );
