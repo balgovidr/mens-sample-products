@@ -21,9 +21,9 @@ export function FeedbackForm() {
     }
 
     return (
-        <div className="flex flex-col gap-2">
-          <label htmlFor="about" className="text-sm font-medium leading-6 text-tertiary">Got feedback or thoughts on what else you might want from us?</label>
-          <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-col gap-2 md:gap-10 md:flex-row md:pb-8">
+          <label htmlFor="about" className="text-sm font-medium leading-6 text-tertiary md:flex-1 md:text-base md:text-right md:self-center md:max-w-xs">Got feedback or thoughts on what else you might want from us?</label>
+          <div className="flex flex-row gap-2 items-center md:flex-1">
             <textarea
               id="thoughtsInput"
               name="thoughtsInput"
@@ -33,7 +33,7 @@ export function FeedbackForm() {
               onChange={(event) => setFeedback(event.target.value)}
               placeholder="I don't even want samples! I'd rather get..."
             />
-            <button className="text-tertiary" onClick={() => submitForm()}>
+            <button className="text-tertiary hover:text-primary transition" onClick={() => submitForm()}>
               <SendIcon />
             </button>
           </div>
