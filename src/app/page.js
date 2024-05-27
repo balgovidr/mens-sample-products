@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Image from "next/image";
 import logo from "@/app/assets/Logo.gif";
-import invertedLogo from "@/app/assets/inverted.svg";
 import boxPic from "@/app/assets/box.png";
 import sachetPic from "@/app/assets/sachet.png";
 import hairUser from "@/app/assets/hair.png";
@@ -49,9 +48,9 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <button className="border-secondary transition hover:border-tertiary hover:text-tertiary border py-2 px-4 text-md w-fit self-center justify-self-end">
+          <a className="border-secondary transition hover:border-tertiary hover:text-tertiary border py-2 px-4 text-md w-fit self-center justify-self-end" href='/build'>
             Build my pack
-          </button>
+          </a>
         </div>
       </div>
     );
@@ -60,10 +59,17 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Grooming Lab - Personalized Grooming Packs for Men</title>
+        <title>Mens Styling Club - Personalised Grooming Packs for Men</title>
         <meta name="description" content="Discover the best grooming products for men with our curated sample packs. Tailored to your unique needs, try before you buy." />
-        <meta name="keywords" content="men grooming, grooming packs, personalized grooming, hair care, skin care, men's grooming products" />
+        <meta name="keywords" content="skin care for men, best body wash for men, mens skincare set, after shave men, men grooming, mens hair styling, grooming packs, personalised grooming, hair care, skin care, men's grooming products" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-between">
         <div className="flex flex-col h-screen bg-primary w-full text-secondary justify-between">
@@ -85,13 +91,13 @@ export default function Home() {
               <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">men.</span>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6 p-5 md:items-center">
-            <Image src={logo} width={100} height={100} alt="Grooming Lab Logo" />
+          <a className="flex flex-col md:flex-row gap-4 md:gap-6 p-5 md:items-center w-fit" href='/'>
+            <Image src={logo} width={100} height={100} alt="Mens Styling Club Logo" />
             <div className="flex flex-col">
-              <span className="text-4xl uppercase font-extralight tracking-[0.25em] font-montserrat">Grooming Lab</span>
+              <span className="text-4xl uppercase font-extralight tracking-[0.25em] font-montserrat">Mens Styling Club</span>
               <span className="font-extralight text-lg font-montserrat">Where men discover.</span>
             </div>
-          </div>
+          </a>
           <div className="md:flex flex-col flex-grow hidden px-10 justify-center text-lg text-secondary">
             <span className="bg-secondary text-primary my-8 px-1 w-fit">Try the best men&apos;s grooming products before you buy.</span>
             <div className="flex flex-row flex-wrap gap-y-1 max-w-sm">
@@ -109,15 +115,15 @@ export default function Home() {
               <span className="inline-block bg-secondary text-primary pl-1">for</span>
               <span className="inline-block bg-secondary text-primary pl-1">men.</span>
             </div>
-            <button className="border-secondary text-light hover:text-tertiary transition hover:border-tertiary border my-8 text-base py-2 px-4 w-fit">Build your custom pack</button>
+            <a className="border-secondary text-light hover:text-tertiary transition hover:border-tertiary border my-8 text-base py-2 px-4 w-fit" href='/build'>Build your custom pack</a>
           </div>
           <Image src={boxPic} alt="Opened box showing sample products" className="md:block absolute bottom-[-80px] right-0 drop-shadow-2xl object-cover w-3/5 hidden" />
         </div>
         <div className="flex flex-col bg-secondary w-full text-primary">
           <h1 className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-14 pb-4 text-center font-black opacity-70 md:mt-20">Why?</h1>
           <div className="flex flex-col p-5 justify-evenly h-full w-full md:flex-row pb-14">
-            <div className="h-[500px] w-full flex p-14 blur-[2px] opacity-60 md:opacity-100 md:order-1 md:blur-0">
-              <Image src={sachetPic} alt="Sample products in sachets" className="self-center object-contain md:object-none" />
+            <div className="h-[500px] w-full flex p-14 blur-[2px] opacity-70 md:opacity-100 md:order-1 md:blur-0 content-center">
+              <Image src={sachetPic} alt="Sample products in sachets" className="self-center object-contain md:h-[500px]" />
             </div>
             <div className="h-[500px] -mt-[500px] w-full md:order-2 md:mt-0 flex flex-col justify-evenly items-center gap-10 md:flex-grow">
               <WhyComponent title="Personalized grooming, simplified" content="We understand that finding the right grooming products can be overwhelming. That's why we offer curated sample packs tailored to your specific needs, so you can discover what works best for you without the hassle." />

@@ -8,10 +8,6 @@ import { db } from '@/firebase/firebaseClient';
 export function FeedbackForm() {
     const [feedback, setFeedback] = useState('');
 
-    useEffect(() => {
-        console.log(feedback)
-    }, [feedback])
-
     async function submitForm() {
         // Add the feedback to firebase
         await addDoc(collection(db, "feedback"), {
