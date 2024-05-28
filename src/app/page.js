@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Image from "next/image";
-import logo from "@/app/assets/Logo.gif";
-import boxPic from "@/app/assets/box.png";
-import sachetPic from "@/app/assets/sachet.png";
-import hairUser from "@/app/assets/hair.png";
-import skinUser from "@/app/assets/skin.png";
+import logo from "@/app/assets/Logo.webp";
+import boxPic from "@/app/assets/box.webp";
+import sachetPic from "@/app/assets/sachet.webp";
+import hairUser from "@/app/assets/hair.webp";
+import skinUser from "@/app/assets/skin.webp";
 import { FeedbackForm } from "./components/feedbackForm";
 import CallIcon from '@mui/icons-material/Call';
 
@@ -60,7 +60,7 @@ export default function Home() {
     <>
       <Head>
         <title>Mens Styling Club - Personalised Grooming Packs for Men</title>
-        <meta name="description" content="Discover the best grooming products for men with our curated sample packs. Tailored to your unique needs, try before you buy." />
+        <meta name="description" content="Discover the best skin and hair products for men with our curated sample packs. Tailored to your unique needs, try before you buy." />
         <meta name="keywords" content="skin care for men, best body wash for men, mens skincare set, after shave men, men grooming, mens hair styling, grooming packs, personalised grooming, hair care, skin care, men's grooming products" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
           </a>
           <div className="md:flex flex-col flex-grow hidden px-10 justify-center text-lg text-secondary">
-            <span className="bg-secondary text-primary my-8 px-1 w-fit">Try the best men&apos;s grooming products before you buy.</span>
+            <h1 className="bg-secondary text-primary my-8 px-1 w-fit">Try the best hair styling products for men and men&apos;s skincare sets before you buy.</h1>
             <div className="flex flex-row flex-wrap gap-y-1 max-w-sm">
               <span className="inline-block bg-secondary text-primary pl-1">Curated</span>
               <span className="inline-block bg-secondary text-primary pl-1">sample</span>
@@ -120,7 +120,7 @@ export default function Home() {
           <Image src={boxPic} alt="Opened box showing sample products" className="md:block absolute bottom-[-80px] right-0 drop-shadow-2xl object-cover w-3/5 hidden" />
         </div>
         <div className="flex flex-col bg-secondary w-full text-primary">
-          <h1 className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-14 pb-4 text-center font-black opacity-70 md:mt-20">Why?</h1>
+          <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-14 pb-4 text-center font-black opacity-70 md:mt-20">Why?</span>
           <div className="flex flex-col p-5 justify-evenly h-full w-full md:flex-row pb-14">
             <div className="h-[500px] w-full flex p-14 blur-[2px] opacity-70 md:opacity-100 md:order-1 md:blur-0 content-center">
               <Image src={sachetPic} alt="Sample products in sachets" className="self-center object-contain md:h-[500px]" />
@@ -133,18 +133,18 @@ export default function Home() {
           </div>
         </div>
         <div className="flex flex-col bg-primary w-full text-secondary">
-          <h1 className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 md:pt-16 md:pb-6 text-center font-black opacity-70">How?</h1>
+          <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 md:pt-16 md:pb-6 text-center font-black opacity-70">How?</span>
           <div className="flex flex-col p-5 md:pb-16 justify-evenly w-full md:flex-row">
             <HowComponent title="Choose your preferences" content="Start by selecting your grooming preferences. Whether it's hair care, skincare, or beard grooming, we've got you covered." />
             <HowComponent title="Build your pack" content="Based on your preferences, we'll curate a sample pack that suits your needs. Our expert team ensures that you get the best products tailored to you." />
-            <HowComponent title="Try and discover" content="Receive your personalized sample pack and try out the products in the comfort of your home. Find out what works best for you and make informed grooming choices." />
+            <HowComponent title="Try and discover" content="Receive your personalised sample pack and try out the products in the comfort of your home. Find out what works best for you and make informed grooming choices." />
           </div>
         </div>
         <div className="flex flex-col bg-secondary w-full text-primary">
-          <h1 className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 md:pt-16 md:pb-6 text-center font-black opacity-70">The packs</h1>
+          <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 md:pt-16 md:pb-6 text-center font-black opacity-70">The packs</span>
           <div className="flex flex-col justify-evenly h-full w-full p-5 md:flex-row">
-            <ProductComponent title="Hair Care" content="Discover top hair care products that nourish and style your hair, keeping it healthy and strong." list={["Shampoo", "Conditioner", "Styling Gel", "Hair Serum"]} image={hairUser} />
-            <ProductComponent title="Skin Care" content="Treat your skin with premium skincare products designed to keep your skin looking and feeling great." list={["Face Wash", "Moisturizer", "Sunscreen", "Serum"]} image={skinUser} />
+            <ProductComponent title="Hair Care" content="Discover top hair care products that nourish and style your hair, keeping it healthy and strong." list={["Shampoo", "Conditioner", "Styling Gel", "Beard wash", "Curly hair creams"]} image={hairUser} />
+            <ProductComponent title="Skin Care" content="Treat your skin with premium skincare sets designed to keep your skin looking and feeling great." list={["Face wash", "Moisturisers for dry skin", "Sunscreen", "Eye cream for dark circles", "Cleanser"]} image={skinUser} />
           </div>
         </div>
         <div className="flex flex-col bg-white w-full px-5 py-14 gap-8 shadow-lg text-tertiary">
