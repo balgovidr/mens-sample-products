@@ -8,7 +8,112 @@ import skinUser from "@/app/assets/skin.webp";
 import { FeedbackForm } from "./components/feedbackForm";
 import CallIcon from '@mui/icons-material/Call';
 
+export const viewport = {
+  themeColor: '#34495E',
+}
+
+export const metadata = {
+  title: 'Mens Styling Club - Personalised Grooming Packs for Men',
+  description: 'Discover the best skin and hair products for men with our curated sample packs. Tailored to your unique needs, try before you buy.',
+  keywords: 'skin care for men, best body wash for men, mens skincare set, after shave men, men grooming, mens hair styling, grooming packs, personalised grooming, hair care, skin care, men\'s grooming products',
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon"
+      },
+      {
+        url: "/assets/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png"
+      },
+      {
+        url: "/assets/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png"
+      }
+    ],
+    shortcut: [
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon"
+      }
+    ],
+    apple: '/assets/apple-touch-icon.png',
+    maskIcon: {
+      href: '/assets/safari-pinned-tab.svg',
+      color: '#34495E'
+    }
+  },
+  msapplication: {
+    TileColor: '#34495E'
+  },
+  alternates: {
+    canonical: 'https://mensstyling.club',
+  },
+  openGraph: {
+    title: 'Mens Styling Club - Personalised Grooming Packs for Men',
+    description: 'Discover the best skin and hair products for men with our curated sample packs. Tailored to your unique needs, try before you buy.',
+    url: 'https://mensstyling.club',
+    type: 'website',
+    images: [
+      {
+        url: 'https://mensstyling.club/assets/og-image.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Mens Styling Club'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@mensstylingclub',
+    title: 'Mens Styling Club - Personalised Grooming Packs for Men',
+    description: 'Discover the best skin and hair products for men with our curated sample packs. Tailored to your unique needs, try before you buy.',
+    image: 'https://mensstyling.club/assets/twitter-image.webp'
+  },
+  additionalMetaTags: [
+    {
+      name: 'author',
+      content: 'Mens Styling Club'
+    },
+    {
+      name: 'revisit-after',
+      content: '7 days'
+    },
+    {
+      name: 'google-site-verification',
+      content: 'lN1A9NW0C0EIMcWktRPLTM3LUg8vpz69w8gWQaCTZVA'
+    }
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
 export default function Home() {
+  const ldJSON = { __html: {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    "name": "Mens Styling Club - Personalised Grooming Packs for Men",
+    "url": "https://mensstyling.club",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }};
+
   function WhyComponent({ title, content }) {
     return (
       <div className="flex flex-col w-7/8 z-10 even:self-end md:even:self-auto">
@@ -59,17 +164,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mens Styling Club - Personalised Grooming Packs for Men</title>
-        <meta name="description" content="Discover the best skin and hair products for men with our curated sample packs. Tailored to your unique needs, try before you buy." />
-        <meta name="keywords" content="skin care for men, best body wash for men, mens skincare set, after shave men, men grooming, mens hair styling, grooming packs, personalised grooming, hair care, skin care, men's grooming products" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-between">
         <div className="flex flex-col h-screen bg-primary w-full text-secondary justify-between">
@@ -159,6 +254,7 @@ export default function Home() {
             <div>Deliveries made anywhere in the UK.</div>
           </div>
         </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={ldJSON} />
       </main>
     </>
   );
