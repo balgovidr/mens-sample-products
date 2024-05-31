@@ -19,29 +19,29 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.ico",
+        url: "https://mensstyling.club/images/favicon.ico",
         type: "image/x-icon"
       },
       {
-        url: "/assets/favicon-16x16.png",
+        url: "https://mensstyling.club/images/favicon-16x16.png",
         sizes: "16x16",
         type: "image/png"
       },
       {
-        url: "/assets/favicon-32x32.png",
+        url: "https://mensstyling.club/images/favicon-32x32.png",
         sizes: "32x32",
         type: "image/png"
       }
     ],
     shortcut: [
       {
-        url: "/favicon.ico",
+        url: "https://mensstyling.club/images/favicon.ico",
         type: "image/x-icon"
       }
     ],
-    apple: '/assets/apple-touch-icon.png',
+    apple: 'https://mensstyling.club/images/apple-touch-icon.png',
     maskIcon: {
-      href: '/assets/safari-pinned-tab.svg',
+      href: '/images/safari-pinned-tab.svg',
       color: '#34495E'
     }
   },
@@ -58,7 +58,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://mensstyling.club/assets/og-image.webp',
+        url: 'https://mensstyling.club/images/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Mens Styling Club'
@@ -70,7 +70,7 @@ export const metadata = {
     site: '@mensstylingclub',
     title: 'Mens Styling Club - Personalised Grooming Packs for Men',
     description: 'Discover the best skin and hair products for men with our curated sample packs. Tailored to your unique needs, try before you buy.',
-    image: 'https://mensstyling.club/assets/twitter-image.webp'
+    image: 'https://mensstyling.club/images/twitter-image.webp'
   },
   additionalMetaTags: [
     {
@@ -161,6 +161,21 @@ export default function Home() {
     );
   }
 
+  /**
+   * Breaks the input string into words and wraps them into individual span elements
+   * @param {string} text - Sentence that is to be separated by spaces
+   * @param {string} spanClasses - Class names to be included in the individual spans
+   * @param {string[]} boldWords - Array of words that need to be in bold
+   */
+  function LineByLine({text, spanClasses, boldWords}) {
+    const textArray = text.split(" ")
+    const componentArray = textArray.map((word, index) => {
+      return <span className={spanClasses + (boldWords?.includes(word) ? " font-semibold" : "")} key={index}>{word}</span>
+    })
+
+    return componentArray
+  }
+
   return (
     <>
       <Head>
@@ -170,45 +185,23 @@ export default function Home() {
         <div className="flex flex-col h-screen bg-primary w-full text-secondary justify-between">
           <div className="flex flex-col h-3/5 w-full md:hidden">
             <Image src={boxPic} alt="Opened box showing sample products" className="self-center lg:block drop-shadow-2xl object-cover h-full w-full opacity-80" />
-            <div className="z-10 flex flex-row flex-wrap gap-y-1 -mt-40 pl-5 text-2xl font-light">
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">Curated</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">sample</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">packs</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">of</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">top</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">hair</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">styling,</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">grooming,</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">and</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">skincare</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">products</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">for</span>
-              <span className="inline-block bg-secondary bg-opacity-25 backdrop-blur-md text-secondary pl-1">men.</span>
-            </div>
+            <h1 className="z-10 flex flex-row flex-wrap gap-y-1 -mt-40 pl-5 text-2xl font-light">
+              <LineByLine text="Trial packs of the best men's hair and skincare products in sample sizes." spanClasses="inline-block bg-secondary bg-opacity-45 backdrop-blur-md text-primary pl-1" boldWords={["sample","sizes."]}/>
+            </h1>
           </div>
           <a className="flex flex-col md:flex-row gap-4 md:gap-6 p-5 md:items-center w-fit" href='/'>
             <Image src={logo} width={100} height={100} alt="Mens Styling Club Logo" />
             <div className="flex flex-col">
-              <span className="text-4xl uppercase font-extralight tracking-[0.25em] font-montserrat">Mens Styling Club</span>
+              <span className="text-3xl uppercase font-extralight tracking-[0.25em] font-montserrat">Mens Styling Club</span>
               <span className="font-extralight text-lg font-montserrat">Where men discover.</span>
             </div>
           </a>
-          <div className="md:flex flex-col flex-grow hidden px-10 justify-center text-lg text-secondary">
-            <h1 className="bg-secondary text-primary my-8 px-1 w-fit">Try the best hair styling products for men and men&apos;s skincare sets before you buy.</h1>
-            <div className="flex flex-row flex-wrap gap-y-1 max-w-sm">
-              <span className="inline-block bg-secondary text-primary pl-1">Curated</span>
-              <span className="inline-block bg-secondary text-primary pl-1">sample</span>
-              <span className="inline-block bg-secondary text-primary pl-1">packs</span>
-              <span className="inline-block bg-secondary text-primary pl-1">of</span>
-              <span className="inline-block bg-secondary text-primary pl-1">top</span>
-              <span className="inline-block bg-secondary text-primary pl-1">hair</span>
-              <span className="inline-block bg-secondary text-primary pl-1">styling,</span>
-              <span className="inline-block bg-secondary text-primary pl-1">grooming,</span>
-              <span className="inline-block bg-secondary text-primary pl-1">and</span>
-              <span className="inline-block bg-secondary text-primary pl-1">skincare</span>
-              <span className="inline-block bg-secondary text-primary pl-1">products</span>
-              <span className="inline-block bg-secondary text-primary pl-1">for</span>
-              <span className="inline-block bg-secondary text-primary pl-1">men.</span>
+          <div className="md:flex flex-col flex-grow hidden px-10 justify-center text-lg text-secondary z-10">
+            <h1 className="my-8 px-1 w-fit lg:text-2xl lg:max-w-lg gap-y-1 flex flex-row flex-wrap">
+              <LineByLine text="Trial packs of the best men's hair and skincare products in sample sizes." spanClasses="inline-block bg-secondary text-primary pl-1" boldWords={["sample","sizes."]}/>
+            </h1>
+            <div className="flex flex-row flex-wrap gap-y-1 max-w-sm lg:max-w-md">
+              <LineByLine text="Try a curated selection of premium men's grooming products tailored to your needs, delivered to your door." spanClasses="inline-block bg-secondary text-primary pl-1" />
             </div>
             <a className="border-secondary text-light hover:text-tertiary transition hover:border-tertiary border my-8 text-base py-2 px-4 w-fit" href='/build'>Build your custom pack</a>
           </div>
@@ -238,8 +231,8 @@ export default function Home() {
         <div className="flex flex-col bg-secondary w-full text-primary">
           <span className="text-7xl uppercase tracking-[0.25em] font-montserrat px-5 pt-10 md:pt-16 md:pb-6 text-center font-black opacity-70">The packs</span>
           <div className="flex flex-col justify-evenly h-full w-full p-5 md:flex-row">
-            <ProductComponent title="Hair Care" content="Discover top hair care products that nourish and style your hair, keeping it healthy and strong." list={["Shampoo", "Conditioner", "Styling Gel", "Beard wash", "Curly hair creams"]} image={hairUser} />
-            <ProductComponent title="Skin Care" content="Treat your skin with premium skincare sets designed to keep your skin looking and feeling great." list={["Face wash", "Moisturisers for dry skin", "Sunscreen", "Eye cream for dark circles", "Cleanser"]} image={skinUser} />
+            <ProductComponent title="Hair Care" content="Discover top hair care trial packs with a range of samples that nourish and style your hair, keeping it healthy and strong." list={["Shampoo", "Conditioner", "Styling Gel", "Beard wash", "Curly hair creams"]} image={hairUser} />
+            <ProductComponent title="Skin Care" content="Treat your skin with premium trial packs containing a variety of skincare samples designed to keep your skin looking and feeling great." list={["Face wash", "Moisturisers for dry skin", "Sunscreen", "Eye cream for dark circles", "Cleanser"]} image={skinUser} />
           </div>
         </div>
         <div className="flex flex-col bg-white w-full px-5 py-14 gap-8 shadow-lg text-tertiary">
